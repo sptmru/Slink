@@ -4,17 +4,28 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shink</title>
+	<title>Shink | Short Link</title>
+	<link type="image/x-icon" href="./assets/favicon.png" rel="shortcut icon">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<div>Короткие ссылки</div>
-	<input id="input" type="text">
-	<input id="button" type="button" value="Кнопка" onclick="sendText()">
-	<div>Здесь будет ссылка</div>
+	<div class="wrapper">
+		<div class="blockAboutService">
+			<img src="./assets/logo.png" alt="Логотип" class="logo">
+			<p class="header_logo header_logo_name">hink</p>
+			<p class="header_logo header_logo_about">- сервис получения коротких ссылок</p>
+		</div>
+		<div class="form">
+			<input id="input" type="url" class="formText inputForUrl">
+			<div id="button" class="formText buttonSendUrl" onclick="sendText()">Click</div>
+		</div>
+		<div class="formText copyButton">Готовая ссылка</div>
+	</div>
+
 </body>
 
 
-<script src="index.js"></script>
+<script src="index.js"></script>s
 
 </html>

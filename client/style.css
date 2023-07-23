@@ -1,0 +1,166 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+@font-face {
+	font-family: Jura-bold;
+	src: url(./assets/Jura-Bold.ttf);
+}
+
+@font-face {
+	font-family: Jura-medium;
+	src: url(./assets/Jura-Medium.ttf);
+}
+
+body {
+	background-color: black;
+	background-image: url(./assets/circle.png);
+	background-size: 14px;
+	background-repeat: space;
+	min-width: 500px;
+}
+
+@media (max-width:767.99px) {
+	.wrapper {
+		width: 80%;
+	}
+
+	.header_logo {
+		font-size: 1.6rem;
+	}
+
+	.formText {
+		font-size: 1.6rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.wrapper {
+		width: 70%;
+	}
+
+	.header_logo {
+		font-size: 2rem;
+	}
+
+	.formText {
+		font-size: 1.8rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.wrapper {
+		width: 60%;
+	}
+
+	.header_logo {
+		font-size: 2.5rem;
+	}
+
+	.formText {
+		font-size: 2rem;
+	}
+}
+
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.blockAboutService {
+	display: flex;
+	margin-top: 20px;
+}
+
+.logo {
+	width: 50px;
+}
+
+.header_logo {
+	color: white;
+	margin-top: auto;
+}
+
+.header_logo_name {
+	font-family: Jura-bold;
+}
+
+.header_logo_about {
+	margin-left: 10px;
+	font-family: Jura-medium;
+}
+
+.form {
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+}
+
+.inputForUrl {
+	width: 90%;
+	border-radius: 10px 0 0 10px;
+	height: 35px;
+	background-color: black;
+	border: 2px solid rgb(151, 96, 143);
+	color: rgb(60, 200, 200);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: Jura-medium;
+	outline: none;
+}
+
+.inputForUrl:focus {
+	border: 2px solid rgb(60, 200, 200);
+	outline: none;
+}
+
+.buttonSendUrl {
+	width: 10%;
+	height: 35px;
+	background-color: black;
+	border-radius: 0 10px 10px 0;
+	border: 2px solid rgb(151, 96, 143);
+	color: aliceblue;
+	font-family: Jura-medium;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttonSendUrl:hover {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+}
+
+.buttonSendUrl:active {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+	background-color: rgb(60, 200, 200);
+}
+
+.copyButton {
+	margin: 50px auto 0px auto;
+	width: 400px;
+	background-color: black;
+	color: rgb(60, 200, 200);
+	border: 1px solid rgb(60, 200, 200);
+	border-radius: 10px;
+	height: 35px;
+	font-family: Jura-medium;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url(./assets/logo-copy.png);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 95% 50%;
+	/* display: none; */
+}
