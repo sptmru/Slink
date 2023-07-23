@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const corsMiddleware = require('./middleware/cors.middleware')
+const {generateUrl} = require('./utils/generateUrl')
 const app = express()
 const port = 3000
 
@@ -15,9 +16,10 @@ app.get('/', (req, res) => {
 app.post('/', function (req, res) {
   try {
     const body = req.body.longUrl;
-    console.log(body);
+    const result = generateUrl(body)
+
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ message: `Возвращаем ${body}` }));
+    res.send(JSON.stringify({ message: `Возвращаем ${result.shortURL}` }));
   } catch (error) {
     console.error(`Ошибка ${error}`);
     res.status(500).send(JSON.stringify({ error: 'Внутренняя ошибка сервера' }));
