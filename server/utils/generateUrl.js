@@ -7,7 +7,7 @@ function generateUrl(word) {
 		randomString += characters.charAt(randomIndex);
 	}
 
-	return {longURL: word, shortURL: randomString};
+	return randomString;
 }
 
 module.exports = { generateUrl };
