@@ -19,7 +19,7 @@ app.post('/', function (req, res) {
     const result = generateUrl(body)
 
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ message: `Возвращаем ${result.shortURL}` }));
+    res.send(JSON.stringify({ message: result.shortURL }));
   } catch (error) {
     console.error(`Ошибка ${error}`);
     res.status(500).send(JSON.stringify({ error: 'Внутренняя ошибка сервера' }));

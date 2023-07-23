@@ -1,4 +1,5 @@
 const input = document.getElementById('input');
+const readyLink = document.getElementById('readyLink');
 // const copyButton = document.querySelector('copyButton');
 
 const sendText = async () => {
@@ -13,6 +14,8 @@ const sendText = async () => {
 
 		const result = await response.json();
 		console.log(result.message);
+		readyLink.classList.remove('no-active');
+		readyLink.innerText = result.message;
 
 	} catch (error) {
 		console.error('Произошла ошибка:', error);
