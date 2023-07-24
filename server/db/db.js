@@ -8,7 +8,6 @@ const pool = new Pool({
 	port: 5432, // Порт PostgreSQL по умолчанию
 });
 
-// Функция для выполнения запросов к базе данных
 function query(queryText, values) {
 	return pool.query(queryText, values);
 }
@@ -25,8 +24,13 @@ async function insertNewUrl(longURL, shortURL) {
 	return result.rows[0];
 }
 
+async function checkHaveShortUrl(shortURL) {
+	console.log(shortURL);
+	const queryText = 'SELECT "longURL" FROM test_word WHERE "shortURL" = $1';
+	const result = await query(queryText, [shortURL]);
+	return result.rows.length > 0 ? result.rows[0].longURL : false;
+  }
 
-// Экспортируем функцию для использования в других частях приложения
 module.exports = {
-	checkHaveUrl, insertNewUrl
+	checkHaveUrl, insertNewUrl, checkHaveShortUrl
 };
