@@ -1,25 +1,39 @@
 const input = document.getElementById('input');
 const readyLink = document.getElementById('readyLink');
+const incorrect = document.getElementById('incorrect');
 // const copyButton = document.querySelector('copyButton');
 
+const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
+
 const sendText = async () => {
-	try {
-		const response = await fetch('http://127.0.0.1:3000/', {
-			method: 'POST',
-			headers: new Headers({
-				'Content-Type': 'application/json;charset=utf-8'
-			}),
-			body: JSON.stringify({ longUrl: input.value })
-		});
+	const originalURL = input.value.trim();
 
-		const result = await response.json();
-		console.log(result.message);
-		readyLink.classList.remove('no-active');
-		readyLink.innerText = result.message;
+	if (urlPattern.test(originalURL)) {
+		try {
+			const response = await fetch('http://127.0.0.1:3000/', {
+				method: 'POST',
+				headers: new Headers({
+					'Content-Type': 'application/json;charset=utf-8'
+				}),
+				body: JSON.stringify({ longUrl: input.value })
+			});
 
-	} catch (error) {
-		console.error('Произошла ошибка:', error);
+			const result = await response.json();
+			console.log(result.message);
+			readyLink.classList.remove('no-active');
+			readyLink.innerText = result.message;
+
+		} catch (error) {
+			console.error('Произошла ошибка:', error);
+		}
+	} else {
+		incorrect.classList.toggle('no-active');
+		setTimeout(() => {
+			incorrect.classList.toggle('no-active');
+		}, "2800");
 	}
+
+
 }
 
 // const copyLink = (e) => {

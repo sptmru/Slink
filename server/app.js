@@ -22,7 +22,6 @@ app.post('/', async function (req, res) {
 
 
     const checkUrl = await checkHaveUrl(originUrl);
-    console.log(checkUrl);
 
     if(checkUrl) {
       res.setHeader('Content-Type', 'application/json');
