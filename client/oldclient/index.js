@@ -1,7 +1,6 @@
 const input = document.getElementById('input');
 const readyLink = document.getElementById('readyLink');
 const incorrect = document.getElementById('incorrect');
-// const copyButton = document.querySelector('copyButton');
 
 const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
 
@@ -32,18 +31,4 @@ const sendText = async () => {
 			incorrect.classList.toggle('no-active');
 		}, "2800");
 	}
-
-
 }
-
-// const copyLink = (e) => {
-// 	e.preventDefault();
-// 	navigator.clipboard.writeText(copyButton.innerHTML)
-// 		.then(function () {
-// 			console.log('Text copied to clipboard');
-// 		}).catch(function (error) {
-// 			console.error('Error:', error);
-// 		});
-// }
-
-
