@@ -5,7 +5,7 @@ const { generateUrl } = require('./utils/generateUrl')
 const { checkHaveUrl, insertNewUrl, checkHaveShortUrl } = require('./db/db')
 
 const app = express()
-const port = 3000
+const port = 5555
 
 app.use(corsMiddleware)
 // app.use(bodyParser.urlencoded({ extended: false }))
@@ -27,7 +27,7 @@ app.post('/', async (req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify({ message: checkUrl }));
     } else {
-      const newShortUrl = generateUrl(originUrl);
+      const newShortUrl = generateUrl();
       await insertNewUrl(originUrl, newShortUrl);
 
       res.setHeader('Content-Type', 'application/json');
@@ -41,7 +41,7 @@ app.post('/', async (req, res) => {
 });
 
 app.get('/:link', async (req, res) => {
-  const checkShortUrl = await checkHaveShortUrl(`localhost:3000/${req.params.link}`);
+  const checkShortUrl = await checkHaveShortUrl(`localhost:5555/${req.params.link}`);
   if (checkShortUrl) {
     res.redirect(checkShortUrl)
   } else {

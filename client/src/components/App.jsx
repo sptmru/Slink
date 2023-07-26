@@ -1,3 +1,4 @@
+import React from 'react';
 import './app.css';
 
 const input = document.getElementById('input');
@@ -11,7 +12,7 @@ const sendText = async () => {
 
   if (urlPattern.test(originalURL)) {
     try {
-      const response = await fetch('http://127.0.0.1:3000/', {
+      const response = await fetch('http://127.0.0.1:5555/', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json;charset=utf-8'
@@ -20,7 +21,6 @@ const sendText = async () => {
       });
 
       const result = await response.json();
-      console.log(result.message);
       readyLink.classList.remove('no-active');
       readyLink.innerText = result.message;
 
@@ -34,6 +34,7 @@ const sendText = async () => {
     }, "2800");
   }
 }
+
 
 
 function App() {
