@@ -1,0 +1,97 @@
+@media (max-width:767.99px) {
+	.header_logo {
+		font-size: 1.6rem;
+	}
+
+	.auth {
+		right: 0px;
+	}
+
+	.auth_button {
+		font-size: 1.2rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.header_logo {
+		font-size: 2rem;
+	}
+
+	.auth {
+		right: -90px;
+	}
+
+	.auth_button {
+		font-size: 1.4rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.header_logo {
+		font-size: 2.5rem;
+	}
+
+	.auth {
+		right: -140px;
+	}
+
+	.auth_button {
+		font-size: 1.5rem;
+	}
+}
+
+.blockAboutService {
+	display: flex;
+	margin-top: 20px;
+}
+
+.logo {
+	width: 50px;
+}
+
+.header_logo {
+	color: white;
+	margin-top: auto;
+}
+
+.header_logo_name {
+	font-family: Jura-bold;
+}
+
+.header_logo_about {
+	margin-left: 10px;
+	font-family: Jura-medium;
+}
+
+.auth {
+	display: flex;
+	width: 130px;
+	justify-content: space-between;
+	position: absolute;
+	top: 30px;
+}
+
+.auth_button {
+	width: 60px;
+	height: 35px;
+	color: white;
+	border: 2px solid rgb(151, 96, 143);
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.join {
+	background-color: rgb(151, 96, 143);
+}
+
+.auth_button:hover {
+	cursor: pointer;
+}
+
+.auth_button:active {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+	background-color: rgb(60, 200, 200);
+}

@@ -1,0 +1,123 @@
+@media (max-width:767.99px) {
+	.formText {
+		font-size: 1.6rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.formText {
+		font-size: 1.8rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.formText {
+		font-size: 2rem;
+	}
+}
+
+.form {
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+}
+
+.inputForUrl {
+	width: 90%;
+	border-radius: 10px 0 0 10px;
+	height: 35px;
+	background-color: black;
+	border: 2px solid rgb(151, 96, 143);
+	color: rgb(60, 200, 200);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: Jura-medium;
+	outline: none;
+}
+
+.inputForUrl:focus {
+	border: 2px solid rgb(60, 200, 200);
+	outline: none;
+}
+
+.buttonSendUrl {
+	width: 10%;
+	height: 35px;
+	background-color: black;
+	border-radius: 0 10px 10px 0;
+	border: 2px solid rgb(151, 96, 143);
+	color: aliceblue;
+	font-family: Jura-medium;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttonSendUrl:hover {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+}
+
+.buttonSendUrl:active {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+	background-color: rgb(60, 200, 200);
+}
+
+.copyButton {
+	margin: 50px auto 0px auto;
+	width: 400px;
+	background-color: black;
+	color: rgb(60, 200, 200);
+	border: 1px solid rgb(60, 200, 200);
+	border-radius: 10px;
+	height: 35px;
+	font-family: Jura-medium;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url(../../assets/logo-copy.png);
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: 95% 50%;
+}
+
+.no_active {
+	display: none;
+}
+
+@keyframes blinker {
+	from {
+		opacity: 1.0;
+	}
+
+	to {
+		opacity: 0.0;
+	}
+}
+
+@-webkit-keyframes blinker {
+	from {
+		opacity: 1.0;
+	}
+
+	to {
+		opacity: 0.0;
+	}
+}
+
+.incorrect {
+	font-family: Jura-medium;
+	font-size: 2rem;
+	color: rgb(60, 200, 200);
+	text-align: center;
+	margin-top: 10px;
+	animation-name: blinker;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+	animation-duration: 3s;
+	-webkit-animation-name: blinker;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+	-webkit-animation-duration: 3s;
+}

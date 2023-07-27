@@ -30,61 +30,17 @@ body {
 	.App {
 		width: 80%;
 	}
-
-	.header_logo .formText {
-		font-size: 1.6rem;
-	}
-
-	.auth {
-		right: 0px;
-	}
-
-	.auth_button {
-		font-size: 1.2rem;
-	}
 }
 
 @media (min-width:768px) and (max-width:1199.99px) {
 	.App {
 		width: 70%;
 	}
-
-	.header_logo {
-		font-size: 2rem;
-	}
-
-	.formText {
-		font-size: 1.8rem;
-	}
-
-	.auth {
-		right: -90px;
-	}
-
-	.auth_button {
-		font-size: 1.4rem;
-	}
 }
 
 @media (min-width: 1200px) {
 	.App {
 		width: 60%;
-	}
-
-	.header_logo {
-		font-size: 2.5rem;
-	}
-
-	.formText {
-		font-size: 2rem;
-	}
-
-	.auth {
-		right: -140px;
-	}
-
-	.auth_button {
-		font-size: 1.5rem;
 	}
 }
 
@@ -94,166 +50,4 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-}
-
-.blockAboutService {
-	display: flex;
-	margin-top: 20px;
-}
-
-.logo {
-	width: 50px;
-}
-
-.header_logo {
-	color: white;
-	margin-top: auto;
-}
-
-.header_logo_name {
-	font-family: Jura-bold;
-}
-
-.header_logo_about {
-	margin-left: 10px;
-	font-family: Jura-medium;
-}
-
-.auth {
-	display: flex;
-	width: 130px;
-	justify-content: space-between;
-	position: absolute;
-	top: 30px;
-}
-
-.auth_button {
-	width: 60px;
-	height: 35px;
-	color: white;
-	border: 2px solid rgb(151, 96, 143);
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.join {
-	background-color: rgb(151, 96, 143);
-}
-
-.auth_button:hover{
-	cursor: pointer;
-}
-
-.auth_button:active{
-	cursor: pointer;
-	border-color: rgb(60, 200, 200);
-	background-color: rgb(60, 200, 200);
-}
-
-.form {
-	width: 100%;
-	margin-top: 150px;
-	display: flex;
-}
-
-.inputForUrl {
-	width: 90%;
-	border-radius: 10px 0 0 10px;
-	height: 35px;
-	background-color: black;
-	border: 2px solid rgb(151, 96, 143);
-	color: rgb(60, 200, 200);
-	padding-left: 10px;
-	padding-right: 10px;
-	font-family: Jura-medium;
-	outline: none;
-}
-
-.inputForUrl:focus {
-	border: 2px solid rgb(60, 200, 200);
-	outline: none;
-}
-
-.buttonSendUrl {
-	width: 10%;
-	height: 35px;
-	background-color: black;
-	border-radius: 0 10px 10px 0;
-	border: 2px solid rgb(151, 96, 143);
-	color: aliceblue;
-	font-family: Jura-medium;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.buttonSendUrl:hover {
-	cursor: pointer;
-	border-color: rgb(60, 200, 200);
-}
-
-.buttonSendUrl:active {
-	cursor: pointer;
-	border-color: rgb(60, 200, 200);
-	background-color: rgb(60, 200, 200);
-}
-
-.copyButton {
-	margin: 50px auto 0px auto;
-	width: 400px;
-	background-color: black;
-	color: rgb(60, 200, 200);
-	border: 1px solid rgb(60, 200, 200);
-	border-radius: 10px;
-	height: 35px;
-	font-family: Jura-medium;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-image: url(../assets/logo-copy.png);
-	background-repeat: no-repeat;
-	background-size: 20px;
-	background-position: 95% 50%;
-}
-
-.no_active {
-	display: none;
-}
-
-@keyframes blinker {
-	from {
-		opacity: 1.0;
-	}
-
-	to {
-		opacity: 0.0;
-	}
-}
-
-@-webkit-keyframes blinker {
-	from {
-		opacity: 1.0;
-	}
-
-	to {
-		opacity: 0.0;
-	}
-}
-
-.incorrect {
-	font-family: Jura-medium;
-	font-size: 2rem;
-	color: rgb(60, 200, 200);
-	text-align: center;
-	margin-top: 10px;
-	animation-name: blinker;
-	animation-iteration-count: infinite;
-	animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
-	animation-duration: 3s;
-	-webkit-animation-name: blinker;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
-	-webkit-animation-duration: 3s;
 }
