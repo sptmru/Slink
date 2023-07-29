@@ -10,12 +10,8 @@ const Header = () => {
 		<>
 			<div className={s.blockAboutService}>
 				<img src={logo} className={s.logo} />
-				<p className={cn(s.header_logo, s.header_logo_name)}>hink</p>
+				<p className={cn(s.header_logo, s.header_logo_name)}>link</p>
 				<p className={cn(s.header_logo, s.header_logo_about)}>- сервис получения коротких ссылок</p>
-			</div>
-			<div className={s.auth}>
-				<div className={s.auth_button}>Log in</div>
-				<div className={cn(s.auth_button, s.join)}>Join</div>
 			</div>
 		</>
 	);

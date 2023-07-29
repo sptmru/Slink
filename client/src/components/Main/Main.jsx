@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames'
 import s from './Main.module.css';
 import Header from './header/Header'
+import Auth from './Auth/Auth';
 
 const Main = () => {
 	const [isCorrect, setCorrect] = useState(false);
@@ -51,6 +52,8 @@ const Main = () => {
 	return (
 		<>
 			<Header />
+			<Auth />
+
 			<div className={s.form}>
 				<input onChange={(e) => setInput(e.target.value)} className={cn(s.formText, s.inputForUrl)} />
 				<div className={cn(s.formText, s.buttonSendUrl)} onClick={sendText}>
