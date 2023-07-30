@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'
-import cn from 'classnames'
+import axios from 'axios';
+import {API_URL} from "../../utils/config";
+import cn from 'classnames';
 import s from './Main.module.css';
 
 const Main = () => {
@@ -23,7 +24,7 @@ const Main = () => {
 
 		if (urlPattern.test(originalURL)) {
 			try {
-				const response = await axios.post('http://127.0.0.1:5555/', { longUrl: originalURL });
+				const response = await axios.post(API_URL, { longUrl: originalURL });
 				console.log(response);
 
 				const result = await response.data;

@@ -10,6 +10,7 @@ const Registration = () => {
 				<input className={cn(s.input, s.inputMail)} placeholder='Ваша почта' />
 				<input className={cn(s.input, s.inputPassword)} placeholder='Придумайте пароль' />
 				<div className={s.button}>Join</div>
+				<div className={s.notify}>Сообщение об ошибке</div>
 			</div>
 		</>
 	);

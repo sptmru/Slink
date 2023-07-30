@@ -52,3 +52,9 @@
 	border: 2px solid rgb(151, 96, 143);
 	background-color: rgb(151, 96, 143);
 }
+
+.notify {
+	margin: 10px auto 0 auto;
+	color: rgb(60, 200, 200);
+	font-size: 18px;
+}

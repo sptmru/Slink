@@ -8,12 +8,11 @@ const app = express()
 const port = 5555
 
 app.use(corsMiddleware)
-// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World!')
+// })
 
 app.post('/', async (req, res) => {
   try {
