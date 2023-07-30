@@ -1,0 +1,54 @@
+@media (max-width:767.99px) {
+	.formRegistration {
+		width: 100%;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.formRegistration {
+		width: 70%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.formRegistration {
+		width: 50%;
+	}
+}
+
+.formRegistration {
+	margin: 200px auto 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.input {
+	border-radius: 10px;
+	height: 35px;
+	background-color: black;
+	border: 2px solid rgb(151, 96, 143);
+	color: rgb(60, 200, 200);
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: Jura-medium;
+	outline: none;
+}
+
+.inputMail,.inputPassword {
+	margin-top: 10px;
+}
+
+.button {
+	margin-top: 10px;
+	height: 35px;
+	border-radius: 10px;
+	font-family: Jura-medium;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	color: aliceblue;
+	border: 2px solid rgb(151, 96, 143);
+	background-color: rgb(151, 96, 143);
+}

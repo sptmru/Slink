@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import cn from 'classnames'
 import s from './Main.module.css';
-import Header from './header/Header'
-import Auth from './Auth/Auth';
 
 const Main = () => {
 	const [isCorrect, setCorrect] = useState(false);
@@ -24,15 +23,10 @@ const Main = () => {
 
 		if (urlPattern.test(originalURL)) {
 			try {
-				const response = await fetch('http://127.0.0.1:5555/', {
-					method: 'POST',
-					headers: new Headers({
-						'Content-Type': 'application/json;charset=utf-8'
-					}),
-					body: JSON.stringify({ longUrl: originalURL })
-				});
+				const response = await axios.post('http://127.0.0.1:5555/', { longUrl: originalURL });
+				console.log(response);
 
-				const result = await response.json();
+				const result = await response.data;
 				handleActive(true);
 				setShortUrl(result.message);
 
@@ -51,9 +45,6 @@ const Main = () => {
 
 	return (
 		<>
-			<Header />
-			<Auth />
-
 			<div className={s.form}>
 				<input onChange={(e) => setInput(e.target.value)} className={cn(s.formText, s.inputForUrl)} />
 				<div className={cn(s.formText, s.buttonSendUrl)} onClick={sendText}>
