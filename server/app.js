@@ -1,6 +1,7 @@
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
-const corsMiddleware = require('./middleware/cors.middleware')
+const corsMiddleware = require('./middleware/cors.middleware');
+const authRouter = require("./routes/auth.routes")
 const { generateUrl } = require('./utils/generateUrl')
 const { checkHaveUrl, insertNewUrl, checkHaveShortUrl } = require('./db/db')
 
@@ -9,6 +10,7 @@ const port = 5555
 
 app.use(corsMiddleware)
 app.use(bodyParser.json());
+app.use("/api/auth", authRouter);
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')

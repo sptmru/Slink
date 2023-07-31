@@ -25,7 +25,6 @@ async function insertNewUrl(longURL, shortURL) {
 }
 
 async function checkHaveShortUrl(shortURL) {
-	console.log(shortURL);
 	const queryText = 'SELECT "longURL" FROM test_word WHERE "shortURL" = $1';
 	const result = await query(queryText, [shortURL]);
 	return result.rows.length > 0 ? result.rows[0].longURL : false;
