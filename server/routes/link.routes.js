@@ -28,10 +28,10 @@ router.post('/', async (req, res) => {
 router.get('/:link', async (req, res) => {
 	const checkShortUrl = await checkHaveShortUrl(`localhost:${PORT}/${req.params.link}`);
 	if (checkShortUrl) {
-	  res.redirect(checkShortUrl)
+		res.redirect(checkShortUrl)
 	} else {
-	  res.redirect('/')
+		res.redirect('/')
 	}
-  });
+});
 
 module.exports = router;

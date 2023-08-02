@@ -15,13 +15,13 @@ const Registration = () => {
 
 	const registration = async () => {
 		try {
-			const response = await axios.post(`${API_URL}api/auth/registration`, { name: name, email: email, password: password });
+			const res = await axios.post(`${API_URL}api/auth/registration`, { name: name, email: email, password: password });
 
-			const result = await response.data;
+			const result = await res.data;
 			setNotify(result.message);
 
 		} catch (err) {
-			console.error('Произошла ошибка:', err);
+			setNotify(err.response.data.message);
 		}
 	}
 

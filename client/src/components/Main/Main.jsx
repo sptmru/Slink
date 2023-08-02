@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {API_URL} from "../../utils/config";
+import { API_URL } from "../../utils/config";
 import cn from 'classnames';
 import s from './Main.module.css';
 
@@ -10,13 +10,6 @@ const Main = () => {
 	const [isInput, setInput] = useState('');
 	const [shortUrl, setShortUrl] = useState('')
 
-	const handleCorrect = (value) => {
-		setCorrect(value);
-	}
-	const handleActive = (value) => {
-		setActive(value);
-	}
-
 	const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
 
 	const sendText = async () => {
@@ -25,20 +18,19 @@ const Main = () => {
 		if (urlPattern.test(originalURL)) {
 			try {
 				const response = await axios.post(API_URL, { longUrl: originalURL });
-				console.log(response);
 
 				const result = await response.data;
-				handleActive(true);
+				setActive(true);
 				setShortUrl(result.message);
 
 			} catch (error) {
 				console.error('Произошла ошибка:', error);
 			}
 		} else {
-			handleCorrect(true);
-			handleActive(false);
+			setCorrect(true);
+			setActive(false);
 			setTimeout(() => {
-				handleCorrect(false);
+				setCorrect(false);
 			}, "2800");
 		}
 	}
@@ -47,9 +39,14 @@ const Main = () => {
 	return (
 		<>
 			<div className={s.form}>
-				<input onChange={(e) => setInput(e.target.value)} className={cn(s.formText, s.inputForUrl)} />
+				<input onChange={(e) => setInput(e.target.value)} className={cn(s.formText, s.inputForUrl)}
+					onKeyDown={(e) => {
+						if (e.key === 'Enter') {
+							sendText();
+						}
+					}} />
 				<div className={cn(s.formText, s.buttonSendUrl)} onClick={sendText}>
-					Click
+					Go!
 				</div>
 			</div>
 			<div className={cn(s.incorrect, { [s.no_active]: isCorrect === false })}>

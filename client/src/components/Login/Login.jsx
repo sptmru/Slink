@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {API_URL} from "../../utils/config";
+import { API_URL } from "../../utils/config";
 import cn from 'classnames'
 import s from './Login.module.css';
+import { addUser} from '../../utils/authHelper';
 
 const Login = () => {
 	const [login, setLogin] = useState('');
@@ -14,13 +15,13 @@ const Login = () => {
 			const response = await axios.post(`${API_URL}api/auth/login`, { login, password });
 
 			const result = await response.data;
-			setNotify(result.message);
+			addUser(result.user);
 
 		} catch (err) {
-			console.error('Произошла ошибка:', err);
+			setNotify(err.response.data.message);
 		}
 	}
-	
+
 	return (
 		<>
 			<div className={s.formLogin}>
