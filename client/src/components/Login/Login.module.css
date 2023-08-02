@@ -50,6 +50,7 @@
 	font-size: 18px;
 	color: aliceblue;
 	border: 2px solid rgb(151, 96, 143);
+	cursor: pointer;
 }
 
 .notify {

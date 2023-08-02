@@ -9,9 +9,9 @@ const users = [];
 
 router.post('/login', async (req, res) => {
 	try {
-		const { name, email, password } = req.body;
+		const { login, password } = req.body;
 
-		const user = users.find(item => item.name === name && item.email === email);
+		const user = users.find(user => (login === user.name || login === user.email));
 		if (!user) {
 			return res.status(400).json({ message: 'User not found' });
 		}
@@ -22,6 +22,7 @@ router.post('/login', async (req, res) => {
 		}
 
 		const token = jwt.sign({ email: user.email }, config.get("secretKey"), { expiresIn: "1h" });
+
 		return res.json({
 			token,
 			user: {
@@ -31,7 +32,6 @@ router.post('/login', async (req, res) => {
 		})
 
 	} catch (err) {
-		console.log(err);
 		res.send({ message: 'Server error' })
 	}
 })
