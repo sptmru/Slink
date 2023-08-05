@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
 import s from './App.module.css';
+
 import Header from './Header/Header';
 import Auth from './Auth/Auth';
 import Main from './Main/Main';

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../slices/userReducer';
+import { setUser } from '../../store/userReducer';
 import axios from 'axios';
 import { API_URL } from "../../utils/config";
 
 import cn from 'classnames'
 import s from './Login.module.css';
+
 
 const Login = () => {
 	const [login, setLogin] = useState('');
@@ -29,6 +30,7 @@ const Login = () => {
 		}
 	}
 
+	
 	return (
 		<>
 			<div className={s.formLogin}>

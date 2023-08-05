@@ -4,14 +4,37 @@ import { API_URL } from "../../utils/config";
 import cn from 'classnames';
 import s from './Main.module.css';
 
+
 const Main = () => {
 	const [isCorrect, setCorrect] = useState(false);
 	const [isActive, setActive] = useState(false);
 	const [isInput, setInput] = useState('');
 	const [shortUrl, setShortUrl] = useState('');
-
+	const [warning, setWarning] = useState('')
 
 	const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
+
+	const handleCopyClick = () => {
+		try {
+			const textArea = document.createElement('textarea');
+			textArea.value = shortUrl;
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textArea);
+			pushWarning('Ссылка скопирована в буфер обмена')
+		} catch (err) {
+			console.error('Не удалось скопировать данные: ', err);
+		}
+	};
+
+	const pushWarning = (text) => {
+		setWarning(text);
+		setCorrect(true);
+		setTimeout(() => {
+			setCorrect(false);
+		}, "2800");
+	}
 
 	const sendText = async () => {
 		const originalURL = isInput.trim();
@@ -28,11 +51,8 @@ const Main = () => {
 				console.error('Произошла ошибка:', error);
 			}
 		} else {
-			setCorrect(true);
+			pushWarning('Введите верную ссылку');
 			setActive(false);
-			setTimeout(() => {
-				setCorrect(false);
-			}, "2800");
 		}
 	}
 
@@ -51,9 +71,9 @@ const Main = () => {
 				</div>
 			</div>
 			<div className={cn(s.incorrect, { [s.no_active]: isCorrect === false })}>
-				Введите верную ссылку
+				{warning}
 			</div>
-			<div className={cn(s.formText, s.copyButton, { [s.no_active]: isActive === false })}>
+			<div className={cn(s.formText, s.copyButton, { [s.no_active]: isActive === false })} onClick={handleCopyClick}>
 				{shortUrl}
 			</div>
 		</>

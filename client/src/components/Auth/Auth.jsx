@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import cn from 'classnames'
 import s from './Auth.module.css';
 
+
 const Auth = () => {
 	const navigate = useNavigate();
 
+	
 	return (
 		<>
 			<div className={s.auth}>

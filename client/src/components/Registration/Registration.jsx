@@ -5,9 +5,7 @@ import cn from 'classnames'
 import s from './Registration.module.css';
 
 
-
 const Registration = () => {
-
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -25,6 +23,7 @@ const Registration = () => {
 		}
 	}
 
+	
 	return (
 		<>
 			<div className={s.formRegistration}>
