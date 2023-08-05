@@ -2,8 +2,7 @@ const config = require("config");
 
 const PORT = config.get('serverPort')
 
-
-function generateUrl(word) {
+function generateUrl() {
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	let randomString = `localhost:${PORT}/`;
 

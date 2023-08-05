@@ -8,7 +8,8 @@ const Main = () => {
 	const [isCorrect, setCorrect] = useState(false);
 	const [isActive, setActive] = useState(false);
 	const [isInput, setInput] = useState('');
-	const [shortUrl, setShortUrl] = useState('')
+	const [shortUrl, setShortUrl] = useState('');
+
 
 	const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
 

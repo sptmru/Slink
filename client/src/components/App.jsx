@@ -1,21 +1,24 @@
 import React from 'react';
-import s from './App.module.css';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import s from './App.module.css';
 import Header from './Header/Header';
 import Auth from './Auth/Auth';
 import Main from './Main/Main';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
+import UserPanel from './UserPanel/UserPanel';
 
 
 const App = () => {
+  const user = useSelector((state) => state.userStore.user);
 
   return (
     <BrowserRouter>
       <div className={s.App}>
         <Header />
-        <Auth />
+        {user ? <UserPanel /> : <Auth />}
 
         <Routes>
           <Route exact path="/" element={<Main />} />

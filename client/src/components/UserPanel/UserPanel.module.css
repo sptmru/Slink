@@ -1,0 +1,71 @@
+@media (max-width:767.99px) {
+	.panel {
+		right: 0px;
+	}
+
+	.user_name, .panel_button {
+		font-size: 1.2rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.panel {
+		right: -90px;
+	}
+
+	.user_name, .panel_button {
+		font-size: 1.4rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.panel {
+		right: -140px;
+	}
+
+	.user_name, .panel_button {
+		font-size: 1.5rem;
+	}
+}
+
+.panel {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 30px;
+	font-family: Jura-medium;
+}
+
+.user_name {
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon {
+	height: 35px;
+	margin-left: 10px;
+}
+
+.panel_button {
+	margin-left: 10px;
+	width: 50px;
+	height: 35px;
+	color: white;
+	border: 2px solid rgb(151, 96, 143);
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.panel_button:hover {
+	cursor: pointer;
+}
+
+.panel_button:active {
+	cursor: pointer;
+	border-color: rgb(60, 200, 200);
+	background-color: rgb(60, 200, 200);
+}

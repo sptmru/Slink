@@ -1,17 +1,12 @@
-export let user = null;
-
-export const addUser = (data) => {
-    if(typeof data === 'object') {
-    user = data;
-  } else {
-    return;
-  }
+export const addUser = (user) => {
+  localStorage.setItem('user', JSON.stringify(user));
 }
 
-export const isAuth = () => {
-  return user ? true : false
+export const getUser = () => {
+  return JSON.parse(localStorage.getItem('user'));
 }
 
 export const logOut = () => {
-  user = null;
+  localStorage.removeItem('user');
 }
+

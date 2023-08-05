@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../slices/userReducer';
 import axios from 'axios';
 import { API_URL } from "../../utils/config";
+
 import cn from 'classnames'
 import s from './Login.module.css';
-import { addUser} from '../../utils/authHelper';
 
 const Login = () => {
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 	const [notify, setNotify] = useState('');
 
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const logIn = async () => {
 		try {
 			const response = await axios.post(`${API_URL}api/auth/login`, { login, password });
 
 			const result = await response.data;
-			addUser(result.user);
+			dispatch(setUser(result.user));
+			navigate('/');
 
 		} catch (err) {
 			setNotify(err.response.data.message);
