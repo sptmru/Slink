@@ -13,12 +13,10 @@ const userSlice = createSlice({
 	reducers: {
 		setUser: (state, action) => {
 			state.user = action.payload;
-
 			addAuthUser(state.user);
 		},
 		logoutUser: (state) => {
 			state.user = null;
-
 			addAuthUser(state.user);
 		},
 	},

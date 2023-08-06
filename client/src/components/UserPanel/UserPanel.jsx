@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from '../../slices/userReducer';
+import { logoutUser } from '../../store/userReducer';
 import s from './UserPanel.module.css';
 
 import user_settings from "../../assets/user_settings.png";

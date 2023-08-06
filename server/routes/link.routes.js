@@ -4,18 +4,27 @@ const { generateUrl } = require('../utils/generateUrl');
 const config = require("config");
 
 const router = new Router;
-const PORT = config.get('serverPort')
+const PORT = config.get('serverPort');
+const cutUrl = config.get('cutUrl');
+const cutUrlAuth = config.get('cutUrlAuth');
 
 
 router.post('/', async (req, res) => {
 	try {
 		const origUrl = req.body.longUrl;
+		const userId = req.body.id;
+
+		let count = cutUrl;
+		if (userId) {
+			count = cutUrlAuth;
+		}
+
 		const checkUrl = await checkHaveUrl(origUrl);
 
 		if (checkUrl) {
 			return res.status(200).json({ message: checkUrl });
 		} else {
-			const shortUrl = generateUrl();
+			const shortUrl = generateUrl(count);
 			await insertNewUrl(origUrl, shortUrl);
 
 			return res.status(200).json({ message: shortUrl });

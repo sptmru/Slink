@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { API_URL } from "../../utils/config";
 import cn from 'classnames';
 import s from './Main.module.css';
@@ -10,7 +11,9 @@ const Main = () => {
 	const [isActive, setActive] = useState(false);
 	const [isInput, setInput] = useState('');
 	const [shortUrl, setShortUrl] = useState('');
-	const [warning, setWarning] = useState('')
+	const [warning, setWarning] = useState('');
+
+	const user = useSelector((state) => state.userStore.user);
 
 	const urlPattern = new RegExp('^(https?://|www\\.)\\S+', 'i');
 
@@ -41,8 +44,7 @@ const Main = () => {
 
 		if (urlPattern.test(originalURL)) {
 			try {
-				const response = await axios.post(API_URL, { longUrl: originalURL });
-
+				const response = await axios.post(API_URL, { longUrl: originalURL, id: user.id });
 				const result = await response.data;
 				setActive(true);
 				setShortUrl(result.message);
