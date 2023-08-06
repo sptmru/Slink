@@ -44,7 +44,10 @@ const Main = () => {
 
 		if (urlPattern.test(originalURL)) {
 			try {
-				const response = await axios.post(API_URL, { longUrl: originalURL, id: user.id });
+				const response = await axios.post(API_URL, { 
+					longUrl: originalURL, 
+					// id: user.id 
+				});
 				const result = await response.data;
 				setActive(true);
 				setShortUrl(result.message);

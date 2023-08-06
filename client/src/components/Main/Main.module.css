@@ -108,6 +108,11 @@
 }
 
 .incorrect {
+	position: absolute;
+	top: 275px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
 	font-family: Jura-medium;
 	font-size: 2rem;
 	color: rgb(60, 200, 200);
