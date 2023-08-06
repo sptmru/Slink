@@ -46,7 +46,7 @@ const Main = () => {
 			try {
 				const response = await axios.post(API_URL, { 
 					longUrl: originalURL, 
-					// id: user.id 
+					id: user ? user.id : undefined 
 				});
 				const result = await response.data;
 				setActive(true);
