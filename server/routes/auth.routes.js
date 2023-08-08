@@ -2,7 +2,9 @@ const Router = require('express');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
-const { check, validationResult } = require('express-validator')
+const { check, validationResult } = require('express-validator');
+const { addUserDb } = require('../db/db');
+
 
 const router = new Router;
 const users = [];
@@ -57,15 +59,12 @@ router.post('/registration',
 				return res.status(400).json({ message: 'User with name or email already exist' });
 			}
 
-			const hashPassword = await bcrypt.hash(password, 8);
-			const newUser = { name, email, password: hashPassword };
+			const password_hash = await bcrypt.hash(password, 8);
+			addUserDb(name, email, password_hash);
 
-			users.push(newUser);
-			console.log(users);
-			return res.json({ message: 'User was created' })
+			return res.json({ message: `User was created` })
 
 		} catch (err) {
-			console.log(err);
 			res.send({ message: 'Server error' })
 		}
 	})

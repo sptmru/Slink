@@ -11,23 +11,22 @@ const cutUrlAuth = config.get('cutUrlAuth');
 
 router.post('/', async (req, res) => {
 	try {
-		const origUrl = req.body.longUrl;
-		const userId = req.body.id;
+		const original_url = req.body.original_url;
+		const user_id = req.body.id;
 
 		let count = cutUrl;
-		if (userId) {
+		if (user_id) {
 			count = cutUrlAuth;
 		}
 
-		const checkUrl = await checkHaveUrl(origUrl);
-
+		const checkUrl = await checkHaveUrl(original_url);
 		if (checkUrl) {
 			return res.status(200).json({ message: checkUrl });
 		} else {
-			const shortUrl = generateUrl(count);
-			await insertNewUrl(origUrl, shortUrl);
+			const short_url = generateUrl(count);
+			await insertNewUrl(user_id, original_url, short_url);
 
-			return res.status(200).json({ message: shortUrl });
+			return res.status(200).json({ message: short_url });
 		}
 	} catch (err) {
 		return res.status(500).json({ error: 'Внутренняя ошибка сервера' });

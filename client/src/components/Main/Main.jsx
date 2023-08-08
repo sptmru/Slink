@@ -40,15 +40,16 @@ const Main = () => {
 	}
 
 	const sendText = async () => {
-		const originalURL = isInput.trim();
+		const original_url = isInput.trim();
 
-		if (urlPattern.test(originalURL)) {
+		if (urlPattern.test(original_url)) {
 			try {
 				const response = await axios.post(API_URL, { 
-					longUrl: originalURL, 
+					original_url: original_url, 
 					id: user ? user.id : undefined 
 				});
 				const result = await response.data;
+				console.log(result);
 				setActive(true);
 				setShortUrl(result.message);
 
