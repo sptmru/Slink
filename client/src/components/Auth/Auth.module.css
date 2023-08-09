@@ -34,6 +34,7 @@
 	justify-content: space-between;
 	position: absolute;
 	top: 30px;
+	font-family: Jura-medium;
 }
 
 .auth_button {
