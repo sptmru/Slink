@@ -3,16 +3,24 @@ const bodyParser = require('body-parser');
 const corsMiddleware = require('./middleware/cors.middleware');
 const authRouter = require("./routes/auth.routes");
 const linkRouter = require("./routes/link.routes");
-const config = require("config");
+const config = require("./config/config");
+const cron = require('node-cron');
+const { deleteData } = require('./db/db');
 
 const app = express()
-const PORT = config.get('serverPort')
+const PORT = config.port;
 
 app.use(corsMiddleware);
 app.use(bodyParser.json());
 app.use("/api/auth", authRouter);
 app.use("/", linkRouter);
 
+
+cron.schedule('00 12 * * 1 ', () => {
+  deleteData();
+});
+
+
 app.listen(PORT, () => {
-  console.log(`Порт открыт по адресу ${PORT}`)
+  console.log(`Порт открыт по адресу ${PORT}`);
 })

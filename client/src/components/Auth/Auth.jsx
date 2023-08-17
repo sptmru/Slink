@@ -7,12 +7,18 @@ import s from './Auth.module.css';
 const Auth = () => {
 	const navigate = useNavigate();
 
-	
+
 	return (
 		<>
 			<div className={s.auth}>
-				<div className={s.auth_button} onClick={() => navigate('/login')}>Log in</div>
-				<div className={cn(s.auth_button, s.auth_button_login)} onClick={() => navigate('/registration')}>Join</div>
+				<div className={s.auth_button}
+					onClick={() => navigate('/login')}>
+					Log in
+				</div>
+				<div className={cn(s.auth_button, s.auth_button_login)}
+					onClick={() => navigate('/registration')}>
+					Join
+				</div>
 			</div>
 		</>
 	);

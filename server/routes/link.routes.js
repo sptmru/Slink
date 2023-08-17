@@ -1,12 +1,9 @@
 const Router = require('express');
 const { checkHaveUrl, insertNewUrl, checkHaveShortUrl } = require('../db/db');
 const { generateUrl } = require('../utils/generateUrl');
-const config = require("config");
+const config = require("../config/config");
 
 const router = new Router;
-const PORT = config.get('serverPort');
-const cutUrl = config.get('cutUrl');
-const cutUrlAuth = config.get('cutUrlAuth');
 
 
 router.post('/', async (req, res) => {
@@ -14,9 +11,9 @@ router.post('/', async (req, res) => {
 		const original_url = req.body.original_url;
 		const user_id = req.body.id;
 
-		let count = cutUrl;
+		let count = config.cutUrl;
 		if (user_id) {
-			count = cutUrlAuth;
+			count = config.cutUrlAuth;
 		}
 
 		const checkUrl = await checkHaveUrl(original_url);
@@ -34,7 +31,7 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:link', async (req, res) => {
-	const checkShortUrl = await checkHaveShortUrl(`localhost:${PORT}/${req.params.link}`);
+	const checkShortUrl = await checkHaveShortUrl(`localhost:${config.port}/${req.params.link}`);
 	if (checkShortUrl) {
 		res.redirect(checkShortUrl)
 	} else {

@@ -1,6 +1,0 @@
-{
-	"serverPort" : 5555,
-	"secretKey" : "slink-secret",
-	"cutUrl" : 5,
-	"cutUrlAuth" : 4
-}

@@ -72,5 +72,12 @@ async function checkUser(name, email) {
 	return false;
 }
 
+async function deleteData() {
+	const queryText = 'DELETE FROM links WHERE "created_at" < NOW() - INTERVAL \'1 month\'';
+	await query(queryText);
+	console.log('Ссылки удалены автоматически');
+	return;
+}
 
-module.exports = { checkHaveUrl, insertNewUrl, checkHaveShortUrl, addUserDb, checkUser, getUser };
+
+module.exports = { checkHaveUrl, insertNewUrl, checkHaveShortUrl, addUserDb, checkUser, getUser, deleteData };
