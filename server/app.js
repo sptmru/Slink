@@ -22,5 +22,5 @@ cron.schedule('00 12 * * 1 ', () => {
 
 
 app.listen(PORT, () => {
-  console.log(`Порт открыт по адресу ${PORT}`);
+  console.log(`The server was started at ${PORT}`);
 })

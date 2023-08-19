@@ -27,9 +27,9 @@ const Registration = () => {
 	return (
 		<>
 			<div className={s.formRegistration}>
-				<input onChange={(e) => setName(e.target.value)} className={cn(s.input, s.inputLogin)} placeholder='Придумайте логин' />
-				<input onChange={(e) => setEmail(e.target.value)}  className={cn(s.input, s.inputMail)} placeholder='Ваша почта' />
-				<input onChange={(e) => setPassword(e.target.value)}  className={cn(s.input, s.inputPassword)} placeholder='Придумайте пароль' />
+				<input onChange={(e) => setName(e.target.value)} className={cn(s.input, s.inputLogin)} placeholder='Come up with a login' />
+				<input onChange={(e) => setEmail(e.target.value)}  className={cn(s.input, s.inputMail)} placeholder='Your mail' />
+				<input onChange={(e) => setPassword(e.target.value)}  className={cn(s.input, s.inputPassword)} placeholder='Come up with a password' />
 				<div className={s.button} onClick={registration}>Join</div>
 				<div className={s.notify}>{notify}</div>
 			</div>

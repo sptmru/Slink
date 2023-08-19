@@ -13,9 +13,9 @@ const Header = () => {
 	return (
 		<>
 			<div className={s.blockAboutService}>
-				<img src={logo} alt='Логотип сервиса' className={s.logo} onClick={() => navigate('/')} />
+				<img src={logo} alt='Service logo' className={s.logo} onClick={() => navigate('/')} />
 				<p className={cn(s.header_logo, s.header_logo_name)}>link</p>
-				<p className={cn(s.header_logo, s.header_logo_about)}>- сервис получения коротких ссылок</p>
+				<p className={cn(s.header_logo, s.header_logo_about)}>- service for creating short links</p>
 			</div>
 		</>
 	);

@@ -25,9 +25,9 @@ const Main = () => {
 			textArea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textArea);
-			pushWarning('Ссылка скопирована в буфер обмена')
+			pushWarning('Link copied')
 		} catch (err) {
-			console.error('Не удалось скопировать данные: ', err);
+			console.error('Failed to copy data: ', err);
 		}
 	};
 
@@ -54,10 +54,10 @@ const Main = () => {
 				setShortUrl(result.message);
 
 			} catch (error) {
-				console.error('Произошла ошибка:', error);
+				console.error('An error has occurred:', error);
 			}
 		} else {
-			pushWarning('Введите верную ссылку');
+			pushWarning('Enter the correct link');
 			setActive(false);
 		}
 	}

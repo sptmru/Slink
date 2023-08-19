@@ -34,8 +34,8 @@ const Login = () => {
 	return (
 		<>
 			<div className={s.formLogin}>
-				<input className={cn(s.input, s.inputLogin)} onChange={(e) => setLogin(e.target.value)} placeholder='Ваш логин или почта' />
-				<input className={cn(s.input, s.inputPassword)} onChange={(e) => setPassword(e.target.value)} placeholder='Ваш пароль' />
+				<input className={cn(s.input, s.inputLogin)} onChange={(e) => setLogin(e.target.value)} placeholder='Your username or email' />
+				<input className={cn(s.input, s.inputPassword)} onChange={(e) => setPassword(e.target.value)} placeholder='Your password' />
 				<div className={s.button} onClick={logIn}>Log in</div>
 				<div className={s.notify}>{notify}</div>
 			</div>

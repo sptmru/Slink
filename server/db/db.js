@@ -62,11 +62,11 @@ async function checkUser(name, email) {
 		const existingNameLowerCase = existingUser.name.toLowerCase();
 
 		if (existingEmailLowerCase === lowerCaseEmail && existingNameLowerCase === lowerCaseName) {
-			return "Данный пользователь уже зарегистрирован";
+			return "This user is already registered";
 		} else if (existingEmailLowerCase === lowerCaseEmail) {
-			return "Пользователь с такой почтой уже зарегистрирован";
+			return "A user with such an email is already registered";
 		} else if (existingNameLowerCase === lowerCaseName) {
-			return "Пользователь с таким именем уже зарегистрирован";
+			return "A user with this name is already registered";
 		}
 	}
 	return false;
@@ -79,7 +79,7 @@ async function deleteData() {
 	const queryTextWithtAuth = 'DELETE FROM links WHERE "user_id" IS NOT NULL AND "created_at" < NOW() - INTERVAL \'3 month\'';
 	await query(queryTextWithtAuth);
 
-	console.log('Ссылки удалены автоматически');
+	console.log('Links are removed automatically');
 }
 
 
