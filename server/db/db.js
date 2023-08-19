@@ -73,10 +73,13 @@ async function checkUser(name, email) {
 }
 
 async function deleteData() {
-	const queryText = 'DELETE FROM links WHERE "created_at" < NOW() - INTERVAL \'1 month\'';
-	await query(queryText);
+	const queryTextWithoutAuth = 'DELETE FROM links WHERE "user_id" IS NULL AND "created_at" < NOW() - INTERVAL \'1 month\'';
+	await query(queryTextWithoutAuth);
+
+	const queryTextWithtAuth = 'DELETE FROM links WHERE "user_id" IS NOT NULL AND "created_at" < NOW() - INTERVAL \'3 month\'';
+	await query(queryTextWithtAuth);
+
 	console.log('Ссылки удалены автоматически');
-	return;
 }
 
 
