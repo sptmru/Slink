@@ -44,9 +44,9 @@ const Main = () => {
 
 		if (urlPattern.test(original_url)) {
 			try {
-				const response = await axios.post(API_URL, { 
-					original_url: original_url, 
-					id: user ? user.id : undefined 
+				const response = await axios.post(API_URL, {
+					original_url: original_url,
+					id: user ? user.id : undefined
 				});
 				const result = await response.data;
 				setActive(true);
@@ -65,20 +65,31 @@ const Main = () => {
 	return (
 		<>
 			<div className={s.form}>
-				<input onChange={(e) => setInput(e.target.value)} className={cn(s.formText, s.inputForUrl)}
+				<input
+					onChange={(e) => setInput(e.target.value)}
+					className={cn(s.formText, s.inputForUrl)}
 					onKeyDown={(e) => {
 						if (e.key === 'Enter') {
 							sendText();
 						}
-					}} />
-				<div className={cn(s.formText, s.buttonSendUrl)} onClick={sendText}>
+					}}
+				/>
+				<div
+					className={cn(s.formText, s.buttonSendUrl)}
+					onClick={sendText}
+				>
 					Go!
 				</div>
 			</div>
-			<div className={cn(s.incorrect, { [s.no_active]: isCorrect === false })}>
+			<div
+				className={cn(s.incorrect, { [s.no_active]: isCorrect === false })}
+			>
 				{warning}
 			</div>
-			<div className={cn(s.formText, s.copyButton, { [s.no_active]: isActive === false })} onClick={handleCopyClick}>
+			<div
+				className={cn(s.formText, s.copyButton, { [s.no_active]: isActive === false })}
+				onClick={handleCopyClick}
+			>
 				{shortUrl}
 			</div>
 		</>
