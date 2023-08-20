@@ -20,6 +20,13 @@ async function checkHaveUrl(original_url) {
 }
 
 
+async function getAllLinksUser(id) {
+	const queryText = 'SELECT * FROM links WHERE "user_id" = $1';
+	const result = await query(queryText, [id]);
+	return result.rows.length > 0 ? result.rows : false;
+}
+
+
 async function insertNewUrl(user_id, original_url, short_url) {
 	const insertQuery = 'INSERT INTO links ("user_id","original_url", "short_url") VALUES ($1, $2, $3) RETURNING *';
 	const result = await query(insertQuery, [user_id, original_url, short_url]);
@@ -83,4 +90,4 @@ async function deleteData() {
 }
 
 
-module.exports = { checkHaveUrl, insertNewUrl, checkHaveShortUrl, addUserDb, checkUser, getUser, deleteData };
+module.exports = { checkHaveUrl, getAllLinksUser, insertNewUrl, checkHaveShortUrl, addUserDb, checkUser, getUser, deleteData };

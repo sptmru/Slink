@@ -1,0 +1,45 @@
+@media (max-width:767.99px) {
+	.link {
+		font-size: 1.4rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.link {
+		font-size: 1.6rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.link {
+		font-size: 1.8rem;
+	}
+}
+
+.link {
+	width: 100%;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: rgb(151, 96, 143);
+	font-family: Jura-medium;
+	border: 2px solid rgb(151, 96, 143);
+	border-radius: 10px;
+	height: 40px;
+}
+
+.shortlink {
+	width: 25%;
+	padding-left: 10px;
+}
+
+.originlink {
+	width: 50%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.date {
+	width: 15%;
+}

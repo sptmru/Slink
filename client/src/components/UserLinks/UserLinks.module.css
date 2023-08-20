@@ -1,0 +1,41 @@
+@media (max-width:767.99px) {
+	.links {
+		font-size: 1.4rem;
+	}
+}
+
+@media (min-width:768px) and (max-width:1199.99px) {
+	.links {
+		font-size: 1.6rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.links {
+		font-size: 1.8rem;
+	}
+}
+
+.links {
+	margin-top: 50px;
+	font-family: Jura-bold;
+	color: rgb(60, 200, 200);
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.warning {
+	color: rgb(151, 96, 143);
+	display: flex;
+	justify-content: center;
+}
+
+.annotation {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}

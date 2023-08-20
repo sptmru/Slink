@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const corsMiddleware = require('./middleware/cors.middleware');
 const authRouter = require("./routes/auth.routes");
+const linksRouter = require("./routes/links.routes");
 const linkRouter = require("./routes/link.routes");
 const config = require("./config/config");
 const cron = require('node-cron');
@@ -13,6 +14,7 @@ const PORT = config.port;
 app.use(corsMiddleware);
 app.use(bodyParser.json());
 app.use("/api/auth", authRouter);
+app.use("/api/links", linksRouter);
 app.use("/", linkRouter);
 
 

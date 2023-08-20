@@ -49,7 +49,6 @@ const Main = () => {
 					id: user ? user.id : undefined 
 				});
 				const result = await response.data;
-				console.log(result);
 				setActive(true);
 				setShortUrl(result.message);
 

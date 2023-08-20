@@ -6,6 +6,7 @@ import s from './App.module.css';
 import Header from './Header/Header';
 import Auth from './Auth/Auth';
 import Main from './Main/Main';
+import UserLinks from './UserLinks/UserLinks';
 import Login from './Login/Login';
 import Registration from './Registration/Registration';
 import UserPanel from './UserPanel/UserPanel';
@@ -22,6 +23,7 @@ const App = () => {
 
         <Routes>
           <Route exact path="/" element={<Main />} />
+          <Route exact path="/links" element={<UserLinks />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
