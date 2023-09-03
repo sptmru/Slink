@@ -1,11 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-	user: 'postgres',
-	host: 'localhost',
-	database: 'Slink_db',
-	password: '1412',
-	port: 5432, // Порт PostgreSQL по умолчанию
+	user: process.env.DB_USER,
+	host: process.env.DB_HOST,
+	database: process.env.DB_NAME,
+	password: process.env.DB_PASSWORD,
+	port: Number(process.env.DB_PORT), // Порт PostgreSQL по умолчанию
 });
 
 function query(queryText, values) {
