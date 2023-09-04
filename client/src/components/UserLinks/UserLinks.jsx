@@ -20,7 +20,7 @@ const UserLinks = () => {
 
 		const getLinks = async (userId) => {
 			try {
-				const response = await axios.get(`${API_URL}api/links`, { params });
+				const response = await axios.get(`${API_URL}`, { params });
 				const result = await response.data;
 				dispatch(setLinks(result.message));
 			} catch (error) {
